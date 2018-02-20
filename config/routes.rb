@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
+  
+  get 'login', to: 'sessions#new'
+  post 'login', to:'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+  
   # post 'users', to: 'users#create'
   # post 'users', to: 'users#edit'
   # Example of named route that can be invoked with purchase_url(id: product.id)
