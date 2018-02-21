@@ -3,7 +3,6 @@ class ArticlesController < ApplicationController
   before_action :require_user, except: [:index, :show]
   before_action :require_same_user, only: [:edit, :update, :destroy]
   
-  
   def index
     @articles = Article.paginate(page: params[:page], per_page: 3)
   end
@@ -28,7 +27,6 @@ class ArticlesController < ApplicationController
   end
   
   def update
-    
     if @article.update(article_params)
       flash[:success] = "Article was successfully updated"
       redirect_to article_path(@article)
